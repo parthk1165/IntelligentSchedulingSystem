@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .division {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            text-align: center;
+        }
+        td {
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            padding: 15px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px; /* Adjust padding */
+            background-color: #070707; /* Change background color */
+            color: #fff; /* Change text color */
+            border: none;
+            border-radius: 25px; /* Increase border radius */
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px; /* Change font size */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+        .btn:hover {
+            transform: scale(1.05); /* Increase button size on hover */
+        }
+        .btn-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+        .faculty-btn-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+        .faculty-btn-container .btn {
+            margin: 0 auto;
+        }
+        .timetable-container {
+            margin-bottom: 40px; /* Add margin between timetable and button */
+        }
+        .fixed-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Timetable</h1>
+        <div class="faculty-btn-container"> <!-- Button container for faculty names at the top -->
+            <a href="{% url 'subject_odd' %}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Subject Names">Subjects</a>
+            <a href="{% url 'lab_odd' %}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Move to lab allocation of odd sem">Lab Allocation</a>
+            <a href="{% url 'teachers' %}" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Faculty Names">Faculty Name</a>
+        </div>
+        {% for division, formatted_timetable in formatted_timetables.items %}
+            <div class="timetable-container">
+                <h2 class="division">Division: {{ division }}</h2>
+                <table>
+                    {{ formatted_timetable|safe }}
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="fixed-button"> <!-- Fixed button container -->
+        <a href="{% url 'home_page' %}" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Head back to Home Page">HomePage</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Initialize Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

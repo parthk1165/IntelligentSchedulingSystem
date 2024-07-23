@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Names</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f0f0f0;
+      }
+
+      .container {
+          max-width: 800px; /* Set maximum width for the container */
+          margin: 0 auto; /* Center align the container */
+          padding: 20px;
+      }
+
+      table {
+          border-collapse: collapse;
+          width: 100%;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          margin-top: 20px;
+          background-color: #fff;
+      }
+
+      th, td {
+          border: 1px solid #dee2e6;
+          padding: 15px;
+          text-align: center;
+      }
+
+      th {
+          background-color: #343a40;
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          position: sticky;
+          top: 0;
+          z-index: 1;
+      }
+
+      .teacher-name {
+          font-weight: bold;
+          color: rgb(9, 9, 10);
+      }
+
+      .btn-container {
+          margin-bottom: 20px;
+          text-align: center;
+      }
+
+      .btn {
+          display: inline-block;
+          padding: 10px 20px;
+          margin: 5px;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s;
+          background-color: #070707;
+          color: #fff;
+      }
+      .btn:hover {
+          background-color: #0056b3;
+      }
+
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      tr:hover {
+          background-color: #ccc;
+          transition: background-color 0.3s;
+      }
+
+      .button-container {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+      }
+  </style>
+</head>
+<body>
+<h2 style="text-align: center;">Faculty Names</h2>
+
+<div class="button-container">
+  <!-- Add tooltips to the buttons -->
+  <a href="{%url 'timetable1'%}" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom"
+     title="Move to Odd Semester Timetable">Odd Semester</a>
+  <a href="{%url 'timetable2'%}" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom"
+     title="Move to Even Semester Timetable">Even Semester</a>
+</div>
+<table id="teachersTable">
+    <tr>
+        <th>Abbreviation</th>
+        <th>Teacher Name</th>
+    </tr>
+    <tr>
+        <td>KJK</td>
+        <td><span class="teacher-name">Prof.Kalyani J. Kulkarni</span></td>
+    </tr>
+    <tr>
+        <td>PSD</td>
+        <td><span class="teacher-name">Prof.Priya S.Deshpande</span></td>
+    </tr>
+    <tr>
+        <td>SKB</td>
+        <td><span class="teacher-name">Prof.Sangita K. Bawkar</span></td>
+    </tr>
+    <tr>
+        <td>YBT</td>
+        <td><span class="teacher-name">Prof.Yogesh B. Thakre</span></td>
+    </tr>
+    <tr>
+        <td>MPP</td>
+        <td><span class="teacher-name">Prof.Mahesh P. Potdar</span></td>
+    </tr>
+    <tr>
+        <td>NDK</td>
+        <td><span class="teacher-name">Prof.Nilesh D. Kuchekar</span></td>
+    </tr>
+    <tr>
+        <td>ASS</td>
+        <td><span class="teacher-name">Prof.Ajeet S. Savant</span></td>
+    </tr>
+    <tr>
+        <td>SRJ</td>
+        <td><span class="teacher-name">Prof.Sachin R. Jaybhaye</span></td>
+    </tr>
+    <tr>
+        <td>DVV</td>
+        <td><span class="teacher-name">Prof.Dipti V. Varpe</span></td>
+    </tr>
+    <tr>
+        <td>RS</td>
+        <td><span class="teacher-name">Prof.Rajeev Singh</span></td>
+    </tr>
+    <tr>
+        <td>PMB</td>
+        <td><span class="teacher-name">Prof.Pradeep M. Bhagare</span></td>
+    </tr>
+    <tr>
+        <td>NDC</td>
+        <td><span class="teacher-name">Prof.Nikita D. Chaudhari</span></td>
+    </tr>
+    <tr>
+        <td>VUG</td>
+        <td><span class="teacher-name">Prof.Vaishali U. Gongane</span></td>
+    </tr>
+    <tr>
+        <td>RKP</td>
+        <td><span class="teacher-name">Prof.Ravi K. Patil</span></td>
+    </tr>
+    <tr>
+        <td>ASN</td>
+        <td><span class="teacher-name">Prof.Anand S. Najan</span></td>
+    </tr>
+    <tr>
+        <td>RBC</td>
+        <td><span class="teacher-name">Prof.Rahul B. Chandrayan</span></td>
+    </tr>
+    <tr>
+        <td>TSK</td>
+        <td><span class="teacher-name">Prof.Tanuja S. Khatvkar</span></td>
+    </tr>
+    <tr>
+        <td>VVS</td>
+        <td><span class="teacher-name">Prof.Vadehi V. Sovani</span></td>
+    </tr>
+    <tr>
+        <td>UAW</td>
+        <td><span class="teacher-name">Prof.Usha A. Walke</span></td>
+    </tr>
+    <tr>
+        <td>ARD</td>
+        <td><span class="teacher-name">Prof.Asha R. Digge</span></td>
+    </tr>
+    <tr>
+        <td>SRL</td>
+        <td><span class="teacher-name">Prof.Shilpa R. Litke</span></td>
+    </tr>
+    <tr>
+        <td>PGS</td>
+        <td><span class="teacher-name">Prof.Prasanna G. Shete</span></td>
+    </tr>
+    <tr>
+        <td>GAK</td>
+        <td><span class="teacher-name">Prof.Gauri A. Kulkarni</span></td>
+    </tr>
+</table>
+
+</body>
+</html>

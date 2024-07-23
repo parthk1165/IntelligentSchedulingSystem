@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timetable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Set background color for the entire page */
+        }
+         /* Header styles */
+         .header {
+            background: linear-gradient(to right, #09130e, #1e3f1b);
+            color: #fff;
+            padding: 20px; /* Increase padding */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            text-align: center; /* Center text */
+        }
+        .logo {
+            max-width: 120px; /* Reduce logo size */
+            height: auto;
+            margin-right: 20px; /* Add margin between logo and text */
+        }
+        .header h1 {
+            font-size: 32px; /* Increase font size for college name */
+            margin: 0; /* Remove margin */
+            font-weight: bold;
+        }
+
+        .header h2 {
+            font-size: 24px; /* Increase font size for department */
+            margin: 0; /* Remove margin */
+        }
+        .header h3 {
+            font-size: 18px; /* Increase font size for project name */
+            margin: 0; /* Remove margin */
+            font-style: italic;
+        }
+        /* Button styles */
+        .btn-container {
+            margin-top: 20px; /* Add margin top */
+            text-align: center; /* Center-align buttons */
+            display: flex;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px; /* Adjust padding */
+            margin: 10px;
+            background-color: #070707; /* Change background color */
+            color: #fff; /* Change text color */
+            border: none;
+            border-radius: 25px; /* Increase border radius */
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px; /* Change font size */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+        .btn:hover {
+            background-color: #117ffd; /* Darken background color on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover */
+        }
+        .btn:active {
+            background-color: #117ffd; /* Darken background color when clicked */
+        }
+        /* Footer styles */
+        .footer {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0; /* Decrease padding */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #191212; /* Set background color for footer */
+            z-index: 1; /* Ensure the footer is above other elements */
+        }
+        .footer-item {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 80px; /* Adjust margin */
+            color: #fff;
+            font-size: 18px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .footer-item:hover {
+            transform: translateY(-3px);
+        }
+        .logo {
+            max-width: 100px; /* Adjust the width of the logo as needed */
+            height: auto;
+            margin-right: 10px; /* Add some spacing between logo and text */
+        }
+        .background-image {
+            background-image: url('https://media.licdn.com/dms/image/D4D22AQFgprciLN4Gyg/feedshare-shrink_2048_1536/0/1711034482461?e=1719446400&v=beta&t=XszPwkYCk9hGSEcOY_mIXZ97BnDWLLlOQXSlrcSc234');
+            background-size: cover;
+            background-position: center;
+            height: 500px; /* Adjust the height as needed */
+            margin-top: -20px; /* Remove the margin */
+            position: relative;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- Add the college logo here -->
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczNyMZ3M2dUHjbG1vJoro5BxvRuC3YARS31IC_xV7OywI7d7hmpJXNQY0IEjtWKjLfhDyTg2Rx8eCf9gVjvRy7lSLVwYOb5W211pm8Qvcg_66o8sLLoky0yX1d_wx-17k1h7OURTMr0rNG_bEzgHT1xY=w236-h299-s-no-gm?authuser=0" alt="College Logo" class="logo">
+        <div>
+            <h1>PVGCOET & GKPIOM</h1>
+            <hr>
+            <h2>Electronics and Telecommunication Branch</h2>
+            <hr>
+            <h3>Project: Intelligent AI Scheduling System</h3>
+        </div>
+    </div>
+
+    <div class="background-image">
+        <div class="container btn-container">
+            <!-- Add tooltips to the buttons -->
+            <a href="{%url 'timetable1'%}" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Move to Odd Semester Timetable">Odd Semester</a>
+            <a href="{%url 'timetable2'%}" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Move to Even Semester Timetable">Even Semester</a>
+        </div>
+    </div>
+ 
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-item">Parth Kulkarni</div>
+        <div class="footer-item">Varun Kulkarni</div>
+        <div class="footer-item">Gandhar Hardikar</div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Initialize Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
